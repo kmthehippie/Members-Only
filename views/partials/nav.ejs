@@ -1,0 +1,31 @@
+<div class="nav-bar">
+    <div class="nav-left">
+        <a href="/"><h1 class="logo">Message Board</h1></a>
+    </div>
+    <div class="nav-right">
+    <a href="/">Home</a>
+
+    <% if (currentUser) { %>
+      <% if (currentUser.membership === 'Pro') { %>
+        <!-- Render links or content for pro users -->
+        <a href="/messages/pro">Messages</a>
+      <% } else if (currentUser.membership === 'Admin') { %>
+        <!-- Render links or content for admin users -->
+        <a href="/messages/admin">Messages</a>
+      <% } else { %>
+        <!-- Default link for basic users -->
+        <a href="/messages">Messages</a>
+      <% } %>
+    <% } else { %>
+      <a href="/messages">Messages</a>
+    <% } %>
+    
+    <% if (currentUser) { %>
+      <a href="/users/logout">Logout</a>
+    <% } else { %>
+      <a href="/users/login">Login</a>
+    <% } %>
+    
+    </div>
+
+</div>

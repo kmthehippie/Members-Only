@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header") %>
+<body>
+    <%- include("./partials/nav") %>
+    <div class="content">
+       <!-- If basic account display this -->
+        <h1><%= title %> for Admin</h1>
+        <a href="/messages/form" class="btn">Create New</a>
+        <br/>
+        <% messages.forEach(msg =>{ %>
+            <div class="message-block">
+                <h3><%= msg.title %></h3>
+                <hr>
+                <p><%= msg.text %></p>
+                <div class="align-right">
+                    <small><%= msg.dateFormatted %> 
+                    <br/>
+                    <span class="name">
+                    <%= msg.user.firstName %> <%= msg.user.lastName %> 
+                    </span>    
+                    </small>
+                </div>
+                <a href="<%= msg.url %>/delete" class="btn del">Del</a>
+            </div>
+            <br/>
+        <% }) %>
+    </div> 
+</body>
+</html>

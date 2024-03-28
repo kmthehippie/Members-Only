@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header") %>
+<body>
+    <%- include("./partials/nav") %>
+    <div class="content">
+       <!-- If basic account display this -->
+        <h1><%= title %></h1>
+        <br/>
+        <div class="message-block">
+            <h3><%= message.title %></h3>
+            <hr>
+            <p><%= message.text %></p>
+            <div class="align-right">
+                <small><%= message.dateFormatted %> 
+                <br/>
+                <span class="name">
+                <%= message.user.firstName %> <%= message.user.lastName %> 
+                </span>    
+                </small>
+            </div>
+        </div>
+
+        <div class="modal">
+            <div class="del-block">
+                <p>Do you really want to delete this Message?</p>
+                <form method="POST">
+                <div class="form-group">
+                    <input id="message_id" class="form-div" type="hidden" name="message_id" value="<%= message._id %>">
+                </div>
+                <button class="btn" type="submit">Delete</button>
+                </form>
+            </div>
+           
+        </div>
+       
+    </div> 
+</body>
+</html>

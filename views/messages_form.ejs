@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header") %>
+<body>
+    <%- include("./partials/nav") %>
+    <div class="content">
+        <h1 class="title"><%= title %></h1>
+        <form method="POST">
+            <div class="form-div">
+                <label for="title">Title</label>
+                <input id="title" type="title" name="title" class="form-input" required>
+            </div>
+            <div class="form-div">
+                <label for="text">Message</label>
+                <textarea name="text" id="text" rows="6" cols="50" class="form-input" required></textarea>
+            </div>
+            <div class="form-btns">
+                <button class="btn" type="submit">Submit</button>
+            </div>
+            <input type="hidden" name="requser" value=<%=currentUser._id%>>
+        </form>
+        <% if (errors.length > 0) { %>
+            <ul>
+              <% errors.forEach(error => { %>
+                <li><%= error.msg %></li>
+              <% }); %>
+            </ul>
+            <% } %>  
+    </div> 
+</body>
+</html>
